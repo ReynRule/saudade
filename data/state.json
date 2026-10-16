@@ -810,7 +810,7 @@
   },
   "SD_Fatal": {
    "guild": "SD",
-   "lastScore": 129445,
+   "lastScore": 129452,
    "hours": {
     "2026-10-17T02": {
      "count": 16,
@@ -837,8 +837,8 @@
      "gain": 1360
     },
     "2026-10-17T08": {
-     "count": 114,
-     "gain": 874
+     "count": 115,
+     "gain": 881
     }
    },
    "jumps": {
@@ -1709,7 +1709,7 @@
   },
   "SD_GIT": {
    "guild": "SD2",
-   "lastScore": 79760,
+   "lastScore": 79765,
    "hours": {
     "2026-10-17T02": {
      "count": 14,
@@ -1736,8 +1736,8 @@
      "gain": 820
     },
     "2026-10-17T08": {
-     "count": 107,
-     "gain": 535
+     "count": 108,
+     "gain": 540
     }
    },
    "jumps": {
@@ -1830,7 +1830,7 @@
   },
   "SD_no name": {
    "guild": "SD2",
-   "lastScore": 53777,
+   "lastScore": 53782,
    "hours": {
     "2026-10-17T02": {
      "count": 0,
@@ -1857,8 +1857,8 @@
      "gain": 0
     },
     "2026-10-17T08": {
-     "count": 90,
-     "gain": 500
+     "count": 91,
+     "gain": 505
     }
    },
    "jumps": {
@@ -2130,7 +2130,7 @@
   },
   "DeadLegion66": {
    "guild": "SD3",
-   "lastScore": 47976,
+   "lastScore": 47980,
    "hours": {
     "2026-10-17T02": {
      "count": 11,
@@ -2157,8 +2157,8 @@
      "gain": 476
     },
     "2026-10-17T08": {
-     "count": 78,
-     "gain": 312
+     "count": 79,
+     "gain": 316
     }
    },
    "jumps": {
@@ -5675,5 +5675,5 @@
    "past": []
   }
  },
- "updated": 1792193971164
+ "updated": 1792193973105
 }
