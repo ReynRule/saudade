@@ -20,11 +20,16 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const COMMIT_EVERY_MS = 1 * 60 * 1000;
 const MAX_HOURS = 24;
 const MAX_PAST = 30;
-const JUMP_MIN = 10;
 const STATE = 'data/state.json';
 
 const newJumps = () => ({ total: 0, j10: 0, j20: 0, j30: 0, hours: {} });
-const tierOf = (d) => (d >= 30 ? 30 : d >= 20 ? 20 : 10);
+// Only exact skip bands count as jumps (polling gaps of hundreds must NOT count)
+const tierOf = (d) => {
+  if (d >= 10 && d <= 12) return 10;
+  if (d >= 20 && d <= 22) return 20;
+  if (d >= 30 && d <= 32) return 30;
+  return 0;
+};
 
 let state = {
   season: { start: null, end: null },
@@ -479,8 +484,8 @@ async function tick() {
           const h = (p.hours[k] ??= { count: 0, gain: 0 });
           h.count += 1;
           h.gain += diff;
-          if (diff >= JUMP_MIN) {
-            const t = tierOf(diff);
+          const t = tierOf(diff);
+          if (t) {
             const jh = (p.jumps.hours[k] ??= { j10: 0, j20: 0, j30: 0 });
             jh['j' + t] += 1;
             p.jumps['j' + t] += 1;
