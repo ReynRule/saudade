@@ -554,7 +554,14 @@ function dispatchNext(at) {
 }
 
 (async () => {
-  if (!HANDOFF_AT && Date.now() - (state.updated || 0) < 10 * 60 * 1000) {
+  // Only cron backup should bail when a live job recently wrote state.
+  // Manual workflow_dispatch and handoff runs must always proceed.
+  const isCron = process.env.GITHUB_EVENT_NAME === 'schedule';
+  if (
+    isCron &&
+    !HANDOFF_AT &&
+    Date.now() - (state.updated || 0) < 10 * 60 * 1000
+  ) {
     console.log('Another job is already running — exiting.');
     return;
   }
