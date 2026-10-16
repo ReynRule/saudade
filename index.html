@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Saudade Manager</title>
+<style>
+:root{
+  --bg:#0b0f14;--card:#12181f;--line:#243040;--text:#e8eef6;--sub:#8b9bb0;
+  --acc:#5b9fd4;--hot:#f0a060;--ok:#3ecf8e;--danger:#e05c5c;
+  --sd:#5b9fd4;--sd2:#7c6cf0;--sd3:#e07a5f;--sd4:#3ecf8e;--sd5:#f0c050;--sd6:#e05ca8;--sd7:#6ecfcf
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:radial-gradient(900px 500px at 5% -5%,#1a2a40 0,transparent 55%),var(--bg);color:var(--text);font:14px/1.5 -apple-system,"Segoe UI",Roboto,"Noto Sans",sans-serif;font-variant-numeric:tabular-nums}
+.wrap{max-width:1100px;margin:0 auto;padding:20px 14px 56px;padding-left:max(14px,env(safe-area-inset-left));padding-right:max(14px,env(safe-area-inset-right));padding-bottom:max(56px,env(safe-area-inset-bottom))}
+header{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 14px;margin-bottom:6px}
+h1{margin:0;font-size:24px;letter-spacing:.4px}
+h1 span{color:var(--acc);font-weight:600}
+.sub{color:var(--sub);font-size:13px;margin:0 0 16px;word-break:keep-all}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.card .l{color:var(--sub);font-size:11px;text-transform:uppercase;letter-spacing:.4px}
+.card .v{font-size:20px;font-weight:700;margin-top:2px}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;align-items:center}
+.filters input,.filters select{background:#0d131a;border:1px solid var(--line);color:var(--text);border-radius:8px;padding:8px 10px;font-size:13px;outline:none}
+.filters input:focus,.filters select:focus{border-color:var(--acc)}
+.filters input[type=text]{flex:1;min-width:120px}
+.filters input[type=number]{width:90px}
+.filters label{color:var(--sub);font-size:12px;display:flex;align-items:center;gap:4px}
+.guild-tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.gtab{padding:6px 12px;border-radius:20px;border:1px solid var(--line);background:#0d131a;color:var(--sub);cursor:pointer;font-size:12px;font-weight:600;transition:.15s}
+.gtab:hover{border-color:var(--acc);color:var(--text)}
+.gtab.on{background:var(--acc);border-color:var(--acc);color:#041018}
+.gtab[data-g=SD].on{background:var(--sd)}.gtab[data-g=SD2].on{background:var(--sd2)}.gtab[data-g=SD3].on{background:var(--sd3)}
+.gtab[data-g=SD4].on{background:var(--sd4)}.gtab[data-g=SD5].on{background:var(--sd5)}.gtab[data-g=SD6].on{background:var(--sd6)}.gtab[data-g=SD7].on{background:var(--sd7)}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;min-width:640px}
+th,td{padding:9px 10px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
+th{color:var(--sub);font-weight:500;font-size:11px;text-transform:uppercase;letter-spacing:.3px;position:sticky;top:0;background:var(--card);z-index:1}
+td.n,th.n{text-align:right}
+tr:hover td{background:#16202c}
+tr.detail td{background:#0e141c;color:var(--sub);font-size:12px;white-space:normal}
+.badge{display:inline-block;padding:1px 7px;border-radius:6px;font-size:10px;font-weight:700;margin-left:6px;vertical-align:middle}
+.badge.g-SD{background:var(--sd);color:#041018}.badge.g-SD2{background:var(--sd2);color:#fff}
+.badge.g-SD3{background:var(--sd3);color:#1a0a00}.badge.g-SD4{background:var(--sd4);color:#041810}
+.badge.g-SD5{background:var(--sd5);color:#1a1200}.badge.g-SD6{background:var(--sd6);color:#1a0410}
+.badge.g-SD7{background:var(--sd7);color:#041818}
+.jbtn{display:inline-block;cursor:pointer;color:var(--hot);font-weight:700;border-radius:6px;padding:2px 8px;border:1px solid #5b3a1e;background:#2a1c10;font-size:12px}
+.jbtn:hover{border-color:var(--hot)}
+.jnone{color:var(--sub)}
+.name{font-weight:600;cursor:pointer}
+.name:hover{color:var(--acc)}
+.panel{display:none;margin:12px 0;padding:14px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+.panel.open{display:block}
+.panel h3{margin:0 0 8px;font-size:15px}
+.tiers{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.tier{flex:1;min-width:90px;text-align:center;border:1px solid var(--line);border-radius:10px;padding:8px;background:#0d131a}
+.tier b{display:block;font-size:18px;color:var(--hot)}
+.tier span{color:var(--sub);font-size:11px}
+.hour-table{width:100%;min-width:0;margin-top:8px}
+.hour-table th,.hour-table td{padding:6px 8px;font-size:12px}
+.empty{color:var(--sub);text-align:center;padding:28px;font-size:14px}
+.foot{color:var(--sub);font-size:11px;margin-top:20px;text-align:center}
+.sort{cursor:pointer;user-select:none}
+.sort:after{content:'';opacity:.4;margin-left:3px}
+.sort.asc:after{content:'▲';opacity:1}
+.sort.desc:after{content:'▼';opacity:1}
+@media(max-width:700px){
+  body{font-size:13px}
+  h1{font-size:20px}
+  .stats{grid-template-columns:1fr 1fr;gap:8px}
+  .card .v{font-size:17px}
+  .filters{gap:6px}
+  .filters input[type=number]{width:72px}
+  th,td{padding:8px 6px}
+  table{min-width:560px}
+  .gtab{padding:5px 10px;font-size:11px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Saudade <span>Manager</span></h1>
+  </header>
+  <div class="sub" id="sub"></div>
+  <div class="stats" id="stats"></div>
+  <div class="guild-tabs" id="guildTabs"></div>
+  <div class="filters">
+    <input type="text" id="q" placeholder="Search name…">
+    <label>Min wave <input type="number" id="minWave" min="0" placeholder="0"></label>
+    <label>Min jumps <input type="number" id="minJump" min="0" placeholder="0"></label>
+    <select id="sort">
+      <option value="score-desc">Wave ↓</option>
+      <option value="score-asc">Wave ↑</option>
+      <option value="jumps-desc">Jumps ↓</option>
+      <option value="jumps-asc">Jumps ↑</option>
+      <option value="rwph-desc">24h RWPH ↓</option>
+      <option value="gain-desc">24h Gain ↓</option>
+      <option value="name-asc">Name A–Z</option>
+    </select>
+  </div>
+  <div class="card scroll">
+    <table>
+      <thead>
+        <tr>
+          <th class="sort" data-s="name">Player</th>
+          <th>Guild</th>
+          <th class="n sort" data-s="score">Season Wave</th>
+          <th class="n sort" data-s="rwph">24h RWPH</th>
+          <th class="n sort" data-s="gain">24h Gain</th>
+          <th class="n sort" data-s="jumps">Season Jumps</th>
+        </tr>
+      </thead>
+      <tbody id="rows"></tbody>
+    </table>
+    <div class="empty" id="empty" style="display:none">No players match filters</div>
+  </div>
+  <div class="panel" id="detailPanel">
+    <h3 id="detailTitle"></h3>
+    <div class="tiers" id="detailTiers"></div>
+    <div class="scroll"><table class="hour-table">
+      <thead><tr><th>Hour (KST)</th><th class="n">RWPH</th><th class="n">Gain</th><th class="n">Jumps</th></tr></thead>
+      <tbody id="detailHours"></tbody>
+    </table></div>
+    <div id="detailPastWrap" style="display:none;margin-top:14px">
+      <h3 style="font-size:13px;margin-bottom:6px">Past Seasons (last 30)</h3>
+      <div class="scroll"><table class="hour-table">
+        <thead><tr><th>Season (KST)</th><th class="n">Final Wave</th><th class="n">Jumps</th></tr></thead>
+        <tbody id="detailPast"></tbody>
+      </table></div>
+    </div>
+    <div style="margin-top:10px;text-align:right"><button id="closeDetail" style="background:#1a2430;border:1px solid var(--line);color:var(--text);padding:6px 14px;border-radius:8px;cursor:pointer">Close</button></div>
+  </div>
+  <div class="foot">Saudade Manager · Made by ReynRule</div>
+</div>
+<script>
+var D = {"season":{"start":"2026-10-12T15:00:00","end":"2026-10-17T14:59:59"},"updated":1792170144326,"players":{"2838831":{"guild":"SD5","lastScore":31338,"hours":{"2026-10-17T02":{"count":2,"gain":6}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"ALDE":{"guild":"SD","lastScore":101607,"hours":{"2026-10-17T02":{"count":3,"gain":15}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"ArroW":{"guild":"SD","lastScore":117914,"hours":{"2026-10-17T02":{"count":3,"gain":19}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"Auto":{"guild":"SD","lastScore":93503,"hours":{"2026-10-17T02":{"count":3,"gain":18}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"Boo8oo":{"guild":"SD","lastScore":101473,"hours":{"2026-10-17T02":{"count":0,"gain":0}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"For Pan":{"guild":"SD","lastScore":107056,"hours":{"2026-10-17T02":{"count":3,"gain":18}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"For Pannn":{"guild":"SD","lastScore":81005,"hours":{"2026-10-17T02":{"count":0,"gain":0}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"HolyHerb":{"guild":"SD","lastScore":108776,"hours":{"2026-10-17T02":{"count":3,"gain":18}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"Micro soft":{"guild":"SD","lastScore":108851,"hours":{"2026-10-17T02":{"count":3,"gain":18}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"MrBoterkoek":{"guild":"SD","lastScore":91692,"hours":{"2026-10-17T02":{"count":2,"gain":12}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"PanPOOKSkateer":{"guild":"SD","lastScore":85008,"hours":{"2026-10-17T02":{"count":3,"gain":15}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"Panslastmentee":{"guild":"SD","lastScore":89287,"hours":{"2026-10-17T02":{"count":3,"gain":18}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"ReynRule":{"guild":"SD","lastScore":67687,"hours":{"2026-10-17T02":{"count":3,"gain":40}},"jumps":{"total":1,"j10":0,"j20":0,"j30":1,"hours":{"2026-10-17T02":{"j10":0,"j20":0,"j30":1}}},"past":[]},"Rith":{"guild":"SD","lastScore":96930,"hours":{"2026-10-17T02":{"count":3,"gain":18}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"RL_Kolinde":{"guild":"SD","lastScore":96286,"hours":{"2026-10-17T02":{"count":3,"gain":18}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"SD_Fatal":{"guild":"SD","lastScore":120760,"hours":{"2026-10-17T02":{"count":3,"gain":18}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"SD_Tenalp":{"guild":"SD","lastScore":104924,"hours":{"2026-10-17T02":{"count":3,"gain":18}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"SD_yungicecube":{"guild":"SD","lastScore":121172,"hours":{"2026-10-17T02":{"count":2,"gain":14}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"Swojnob":{"guild":"SD","lastScore":82566,"hours":{"2026-10-17T02":{"count":3,"gain":18}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"wewilleatants":{"guild":"SD","lastScore":77460,"hours":{"2026-10-17T02":{"count":3,"gain":15}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"Zaem_":{"guild":"SD","lastScore":108253,"hours":{"2026-10-17T02":{"count":2,"gain":13}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"Aruzu":{"guild":"SD2","lastScore":68409,"hours":{"2026-10-17T02":{"count":3,"gain":12}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"Docpo":{"guild":"SD2","lastScore":70842,"hours":{"2026-10-17T02":{"count":3,"gain":15}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"FlyHighPanPie":{"guild":"SD2","lastScore":64993,"hours":{"2026-10-17T02":{"count":2,"gain":10}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"LakuJK":{"guild":"SD2","lastScore":82240,"hours":{"2026-10-17T02":{"count":3,"gain":18}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"Linxx_Hybrid":{"guild":"SD2","lastScore":63692,"hours":{"2026-10-17T02":{"count":3,"gain":15}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"MattyP3o5":{"guild":"SD2","lastScore":68064,"hours":{"2026-10-17T02":{"count":3,"gain":15}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"MAX":{"guild":"SD2","lastScore":109773,"hours":{"2026-10-17T02":{"count":3,"gain":18}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"MS365":{"guild":"SD2","lastScore":83326,"hours":{"2026-10-17T02":{"count":3,"gain":16}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"RhanRhan":{"guild":"SD2","lastScore":72729,"hours":{"2026-10-17T02":{"count":3,"gain":15}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"rotiset":{"guild":"SD2","lastScore":72551,"hours":{"2026-10-17T02":{"count":3,"gain":15}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"Rozzy":{"guild":"SD2","lastScore":36526,"hours":{"2026-10-17T02":{"count":0,"gain":0}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"sausage_racky":{"guild":"SD2","lastScore":53865,"hours":{"2026-10-17T02":{"count":2,"gain":10}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"SD_Basterix":{"guild":"SD2","lastScore":74500,"hours":{"2026-10-17T02":{"count":3,"gain":15}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"SD_Dadagamer11":{"guild":"SD2","lastScore":60572,"hours":{"2026-10-17T02":{"count":3,"gain":12}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"SD_GIT":{"guild":"SD2","lastScore":74190,"hours":{"2026-10-17T02":{"count":3,"gain":15}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"SD_Jorv":{"guild":"SD2","lastScore":101856,"hours":{"2026-10-17T02":{"count":2,"gain":10}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"SD_no name":{"guild":"SD2","lastScore":53277,"hours":{"2026-10-17T02":{"count":0,"gain":0}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"Spyder":{"guild":"SD2","lastScore":72505,"hours":{"2026-10-17T02":{"count":2,"gain":10}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"_AuK_":{"guild":"SD2","lastScore":59971,"hours":{"2026-10-17T02":{"count":2,"gain":10}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"_Natee_":{"guild":"SD2","lastScore":53285,"hours":{"2026-10-17T02":{"count":0,"gain":0}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"6ft7 TrueAdam":{"guild":"SD3","lastScore":56320,"hours":{"2026-10-17T02":{"count":2,"gain":10}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"Aspiraring":{"guild":"SD3","lastScore":21960,"hours":{"2026-10-17T02":{"count":1,"gain":2}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"ctcea":{"guild":"SD3","lastScore":18263,"hours":{"2026-10-17T02":{"count":0,"gain":0}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"DeadLegion66":{"guild":"SD3","lastScore":44754,"hours":{"2026-10-17T02":{"count":2,"gain":8}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"GAME W":{"guild":"SD3","lastScore":14946,"hours":{"2026-10-17T02":{"count":1,"gain":3}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"Grizzly76":{"guild":"SD3","lastScore":21976,"hours":{"2026-10-17T02":{"count":0,"gain":0}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"Katorze14":{"guild":"SD3","lastScore":31098,"hours":{"2026-10-17T02":{"count":2,"gain":6}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"KingGift":{"guild":"SD3","lastScore":48173,"hours":{"2026-10-17T02":{"count":0,"gain":0}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"Kongzzz":{"guild":"SD3","lastScore":27766,"hours":{"2026-10-17T02":{"count":2,"gain":6}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"MiniHerb":{"guild":"SD3","lastScore":35273,"hours":{"2026-10-17T02":{"count":2,"gain":8}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"real number":{"guild":"SD3","lastScore":45,"hours":{"2026-10-17T02":{"count":0,"gain":0}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"RIMURU_12345":{"guild":"SD3","lastScore":11156,"hours":{"2026-10-17T02":{"count":1,"gain":2}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"SD_G O J O":{"guild":"SD3","lastScore":28752,"hours":{"2026-10-17T02":{"count":2,"gain":4}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"SD_Gubi":{"guild":"SD3","lastScore":44514,"hours":{"2026-10-17T02":{"count":2,"gain":8}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"SD_Lotuszz":{"guild":"SD3","lastScore":46004,"hours":{"2026-10-17T02":{"count":2,"gain":8}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"SD_MisterSalty":{"guild":"SD3","lastScore":40544,"hours":{"2026-10-17T02":{"count":3,"gain":12}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"SD_TriMeowGod":{"guild":"SD3","lastScore":10964,"hours":{"2026-10-17T02":{"count":1,"gain":3}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"SD_Try2":{"guild":"SD3","lastScore":16695,"hours":{"2026-10-17T02":{"count":0,"gain":0}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"stoic_":{"guild":"SD3","lastScore":32273,"hours":{"2026-10-17T02":{"count":2,"gain":6}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"Yttrium241":{"guild":"SD3","lastScore":40,"hours":{"2026-10-17T02":{"count":0,"gain":0}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"player65898799":{"guild":"SD4","lastScore":30272,"hours":{"2026-10-17T02":{"count":0,"gain":0}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"BabbyYoda2018":{"guild":"SD4","lastScore":30282,"hours":{"2026-10-17T02":{"count":1,"gain":3}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"BNhanVietNam":{"guild":"SD4","lastScore":15038,"hours":{"2026-10-17T02":{"count":1,"gain":2}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"DC_Sherlock":{"guild":"SD4","lastScore":78092,"hours":{"2026-10-17T02":{"count":3,"gain":15}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"Dr Sugar":{"guild":"SD4","lastScore":54249,"hours":{"2026-10-17T02":{"count":2,"gain":10}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"HolyRGC":{"guild":"SD4","lastScore":12576,"hours":{"2026-10-17T02":{"count":0,"gain":0}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"Jungle Diff":{"guild":"SD4","lastScore":21626,"hours":{"2026-10-17T02":{"count":2,"gain":6}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"justBubi":{"guild":"SD4","lastScore":37565,"hours":{"2026-10-17T02":{"count":0,"gain":0}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"KinglyDemeanor":{"guild":"SD4","lastScore":2571,"hours":{"2026-10-17T02":{"count":0,"gain":0}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"MrKietdepzai":{"guild":"SD4","lastScore":13130,"hours":{"2026-10-17T02":{"count":2,"gain":4}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"NoSoulSkate":{"guild":"SD4","lastScore":41945,"hours":{"2026-10-17T02":{"count":0,"gain":0}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"SD_KingJack":{"guild":"SD4","lastScore":9949,"hours":{"2026-10-17T02":{"count":0,"gain":0}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"SD_Piet":{"guild":"SD4","lastScore":18693,"hours":{"2026-10-17T02":{"count":2,"gain":6}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"SD_VoLT":{"guild":"SD4","lastScore":46615,"hours":{"2026-10-17T02":{"count":2,"gain":10}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"SD_Zoe":{"guild":"SD4","lastScore":20236,"hours":{"2026-10-17T02":{"count":0,"gain":0}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"shark1234":{"guild":"SD4","lastScore":25737,"hours":{"2026-10-17T02":{"count":1,"gain":3}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"SoloLeveling7":{"guild":"SD4","lastScore":0,"hours":{"2026-10-17T02":{"count":0,"gain":0}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"Soullll1":{"guild":"SD4","lastScore":11247,"hours":{"2026-10-17T02":{"count":1,"gain":1}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"xRedragon666":{"guild":"SD4","lastScore":62140,"hours":{"2026-10-17T02":{"count":0,"gain":0}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"YellowClover":{"guild":"SD4","lastScore":29287,"hours":{"2026-10-17T02":{"count":2,"gain":6}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"Airii":{"guild":"SD5","lastScore":22564,"hours":{"2026-10-17T02":{"count":1,"gain":3}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"cjl1004":{"guild":"SD5","lastScore":9821,"hours":{"2026-10-17T02":{"count":2,"gain":2}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"Copper76":{"guild":"SD5","lastScore":44336,"hours":{"2026-10-17T02":{"count":1,"gain":4}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"gab1_mrs":{"guild":"SD5","lastScore":24477,"hours":{"2026-10-17T02":{"count":2,"gain":8}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"Kellychatty":{"guild":"SD5","lastScore":53268,"hours":{"2026-10-17T02":{"count":3,"gain":12}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"Kuroxeno":{"guild":"SD5","lastScore":14483,"hours":{"2026-10-17T02":{"count":0,"gain":0}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"Mini_Linxx":{"guild":"SD5","lastScore":17229,"hours":{"2026-10-17T02":{"count":1,"gain":3}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"Notlemonpie":{"guild":"SD5","lastScore":13731,"hours":{"2026-10-17T02":{"count":0,"gain":0}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"Painlessly":{"guild":"SD5","lastScore":23655,"hours":{"2026-10-17T02":{"count":2,"gain":10}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"PanPieczarka":{"guild":"SD5","lastScore":0,"hours":{"2026-10-17T02":{"count":0,"gain":0}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"Pixeler":{"guild":"SD5","lastScore":13457,"hours":{"2026-10-17T02":{"count":0,"gain":0}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"SD_VINNY":{"guild":"SD5","lastScore":3957,"hours":{"2026-10-17T02":{"count":2,"gain":10}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"Swaggsyer":{"guild":"SD5","lastScore":71116,"hours":{"2026-10-17T02":{"count":3,"gain":12}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"SY_GhostLx":{"guild":"SD5","lastScore":41928,"hours":{"2026-10-17T02":{"count":2,"gain":6}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"TaielennnVn":{"guild":"SD5","lastScore":16310,"hours":{"2026-10-17T02":{"count":2,"gain":4}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"Wano_Capital":{"guild":"SD5","lastScore":44432,"hours":{"2026-10-17T02":{"count":2,"gain":8}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"Zaicoo":{"guild":"SD5","lastScore":21868,"hours":{"2026-10-17T02":{"count":2,"gain":4}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"Zynqerx_SD":{"guild":"SD5","lastScore":22006,"hours":{"2026-10-17T02":{"count":1,"gain":4}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"_Nix":{"guild":"SD5","lastScore":954,"hours":{"2026-10-17T02":{"count":0,"gain":0}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"-ProV-":{"guild":"SD6","lastScore":57910,"hours":{"2026-10-17T02":{"count":2,"gain":10}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"cupckx":{"guild":"SD6","lastScore":12226,"hours":{"2026-10-17T02":{"count":1,"gain":2}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"Dada-smoll":{"guild":"SD6","lastScore":4516,"hours":{"2026-10-17T02":{"count":2,"gain":4}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"Dim":{"guild":"SD6","lastScore":55937,"hours":{"2026-10-17T02":{"count":3,"gain":18}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"garnuch77":{"guild":"SD6","lastScore":9573,"hours":{"2026-10-17T02":{"count":0,"gain":0}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"IS QUTAIBA":{"guild":"SD6","lastScore":21236,"hours":{"2026-10-17T02":{"count":0,"gain":0}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"JollyRoger":{"guild":"SD6","lastScore":33732,"hours":{"2026-10-17T02":{"count":2,"gain":8}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"JVince":{"guild":"SD6","lastScore":14068,"hours":{"2026-10-17T02":{"count":1,"gain":2}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"Kidranguyen":{"guild":"SD6","lastScore":34209,"hours":{"2026-10-17T02":{"count":2,"gain":8}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"Kiroap":{"guild":"SD6","lastScore":11886,"hours":{"2026-10-17T02":{"count":2,"gain":4}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"LazyDav":{"guild":"SD6","lastScore":14213,"hours":{"2026-10-17T02":{"count":1,"gain":2}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"OogwaySensei":{"guild":"SD6","lastScore":11798,"hours":{"2026-10-17T02":{"count":0,"gain":0}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"OriginalMichi":{"guild":"SD6","lastScore":47770,"hours":{"2026-10-17T02":{"count":3,"gain":12}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"Ozzy":{"guild":"SD6","lastScore":16859,"hours":{"2026-10-17T02":{"count":3,"gain":3}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"P67961402":{"guild":"SD6","lastScore":8087,"hours":{"2026-10-17T02":{"count":0,"gain":0}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"QueenCalypso":{"guild":"SD6","lastScore":45990,"hours":{"2026-10-17T02":{"count":0,"gain":0}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"Salatyk":{"guild":"SD6","lastScore":22648,"hours":{"2026-10-17T02":{"count":2,"gain":6}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"SD_mounir":{"guild":"SD6","lastScore":15259,"hours":{"2026-10-17T02":{"count":2,"gain":4}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"SD_Rhaegar":{"guild":"SD6","lastScore":38340,"hours":{"2026-10-17T02":{"count":2,"gain":6}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"SD_Whyte":{"guild":"SD6","lastScore":11892,"hours":{"2026-10-17T02":{"count":3,"gain":9}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]},"Azuzue":{"guild":"SD7","lastScore":0,"hours":{"2026-10-17T02":{"count":0,"gain":0}},"jumps":{"total":0,"j10":0,"j20":0,"j30":0,"hours":{}},"past":[]}}};
+var $ = function(id){return document.getElementById(id)};
+var nf = function(n){return Number(n||0).toLocaleString('en-US')};
+var kst = function(ms){return new Date(ms+9*3600e3).toISOString()};
+var fmt = function(ms){return kst(ms).replace('T',' ').slice(0,16)};
+var labelH = function(k){var hh=Number(k.slice(11,13));return k.slice(5,10)+' '+k.slice(11,13)+':00–'+String((hh+1)%24).padStart(2,'0')+':00'};
+var GUILD_IDS = ['SD','SD2','SD3','SD4','SD5','SD6','SD7'];
+var activeGuild = 'ALL';
+var selected = null;
+var lastUpdated = (D && D.updated) || 0;
+
+function playerList(){
+  return Object.keys(D.players||{}).map(function(name){
+    var p = D.players[name];
+    var keys = Object.keys(p.hours||{}).sort().slice(-24);
+    var rwph = keys.reduce(function(s,k){return s+(p.hours[k].count||0)},0);
+    var gain = keys.reduce(function(s,k){return s+(p.hours[k].gain||0)},0);
+    return {
+      name: name,
+      guild: p.guild||'?',
+      score: p.lastScore||0,
+      rwph: rwph,
+      gain: gain,
+      jumps: (p.jumps&&p.jumps.total)||0,
+      j10: (p.jumps&&p.jumps.j10)||0,
+      j20: (p.jumps&&p.jumps.j20)||0,
+      j30: (p.jumps&&p.jumps.j30)||0,
+      hours: p.hours||{},
+      jumpHours: (p.jumps&&p.jumps.hours)||{},
+      past: p.past||[]
+    };
+  });
+}
+
+function renderStats(list){
+  var total = list.length;
+  var jumps = list.reduce(function(s,p){return s+p.jumps},0);
+  var waves = list.reduce(function(s,p){return s+p.score},0);
+  var byG = {};
+  GUILD_IDS.forEach(function(g){byG[g]=0});
+  list.forEach(function(p){if(byG[p.guild]!=null)byG[p.guild]++});
+  var ss = D.season&&D.season.start ? new Date(D.season.start+'Z').getTime() : null;
+  var se = D.season&&D.season.end ? new Date(D.season.end+'Z').getTime() : null;
+  $('sub').textContent = (ss ? 'Season '+fmt(ss)+' ~ '+fmt(se)+' (KST)' : 'No season data')
+    + (D.updated ? '  ·  Updated '+kst(D.updated).replace('T',' ').slice(5,19)+' KST' : '');
+  $('stats').innerHTML = [
+    ['Players', nf(total)],
+    ['Total Waves', nf(waves)],
+    ['Season Jumps', nf(jumps)],
+    ['Guilds', GUILD_IDS.filter(function(g){return byG[g]>0}).length+'/7']
+  ].map(function(c){return '<div class="card"><div class="l">'+c[0]+'</div><div class="v">'+c[1]+'</div></div>'}).join('');
+}
+
+function renderTabs(){
+  var html = '<div class="gtab'+(activeGuild==='ALL'?' on':'')+'" data-g="ALL">All</div>';
+  GUILD_IDS.forEach(function(g){
+    html += '<div class="gtab'+(activeGuild===g?' on':'')+'" data-g="'+g+'">'+g+'</div>';
+  });
+  $('guildTabs').innerHTML = html;
+  Array.from($('guildTabs').children).forEach(function(el){
+    el.onclick = function(){activeGuild=el.getAttribute('data-g');render();};
+  });
+}
+
+function filtered(){
+  var q = ($('q').value||'').trim().toLowerCase();
+  var minW = Number($('minWave').value)||0;
+  var minJ = Number($('minJump').value)||0;
+  var sort = ($('sort').value||'score-desc').split('-');
+  var key = sort[0], dir = sort[1]==='asc'?1:-1;
+  var list = playerList().filter(function(p){
+    if(activeGuild!=='ALL' && p.guild!==activeGuild) return false;
+    if(q && p.name.toLowerCase().indexOf(q)<0) return false;
+    if(p.score < minW) return false;
+    if(p.jumps < minJ) return false;
+    return true;
+  });
+  list.sort(function(a,b){
+    var av=a[key], bv=b[key];
+    if(typeof av==='string') return dir*(av.localeCompare(bv));
+    return dir*((av||0)-(bv||0));
+  });
+  return list;
+}
+
+function openDetail(p){
+  selected = p.name;
+  $('detailPanel').classList.add('open');
+  $('detailTitle').textContent = p.name + ' · ' + p.guild;
+  $('detailTiers').innerHTML = [
+    ['10 Jump (10–12)', p.j10],
+    ['20 Jump (20–22)', p.j20],
+    ['30 Jump (30–32)', p.j30],
+    ['Total', p.jumps]
+  ].map(function(t){return '<div class="tier"><b>'+nf(t[1])+'</b><span>'+t[0]+'</span></div>'}).join('');
+  var keys = Object.keys(p.hours).sort().reverse().slice(0,24);
+  $('detailHours').innerHTML = keys.length ? keys.map(function(k){
+    var h=p.hours[k]||{count:0,gain:0};
+    var jh=p.jumpHours[k]||{j10:0,j20:0,j30:0};
+    var jt=(jh.j10||0)+(jh.j20||0)+(jh.j30||0);
+    return '<tr><td>'+labelH(k)+'</td><td class="n">'+nf(h.count)+'</td><td class="n">+'+nf(h.gain)+'</td><td class="n">'+(jt?jt:'-')+'</td></tr>';
+  }).join('') : '<tr><td colspan="4" class="jnone">No hourly data yet</td></tr>';
+  var past = (p.past||[]).slice().reverse();
+  if(past.length){
+    $('detailPastWrap').style.display='';
+    $('detailPast').innerHTML = past.map(function(s){
+      var a=s.start?fmt(new Date(s.start+'Z').getTime()):'?';
+      var b=s.end?fmt(new Date(s.end+'Z').getTime()):'?';
+      return '<tr><td>'+a+' ~ '+b+'</td><td class="n">'+nf(s.wave||0)+'</td><td class="n">'+nf(s.total||0)+'</td></tr>';
+    }).join('');
+  } else {
+    $('detailPastWrap').style.display='none';
+  }
+}
+
+function render(){
+  renderTabs();
+  var list = filtered();
+  renderStats(playerList());
+  var tb = $('rows');
+  tb.innerHTML = '';
+  if(!list.length){
+    $('empty').style.display='';
+  } else {
+    $('empty').style.display='none';
+    list.forEach(function(p){
+      var tr = document.createElement('tr');
+      tr.innerHTML =
+        '<td><span class="name">'+p.name+'</span></td>'
+        +'<td><span class="badge g-'+p.guild+'">'+p.guild+'</span></td>'
+        +'<td class="n">'+nf(p.score)+'</td>'
+        +'<td class="n">'+nf(p.rwph)+'</td>'
+        +'<td class="n">+'+nf(p.gain)+'</td>'
+        +'<td class="n">'+(p.jumps?'<span class="jbtn">'+nf(p.jumps)+'</span>':'<span class="jnone">-</span>')+'</td>';
+      tr.querySelector('.name').onclick = function(){openDetail(p)};
+      var jb = tr.querySelector('.jbtn');
+      if(jb) jb.onclick = function(e){e.stopPropagation();openDetail(p)};
+      tb.appendChild(tr);
+    });
+  }
+  if(selected && D.players && D.players[selected]){
+    var pl = playerList().filter(function(x){return x.name===selected})[0];
+    if(pl) openDetail(pl);
+  } else if(selected && !(D.players && D.players[selected])){
+    selected = null;
+    $('detailPanel').classList.remove('open');
+  }
+}
+
+function refreshData(){
+  fetch('data/state.json?t='+Date.now(), {cache:'no-store'})
+    .then(function(r){if(!r.ok) throw new Error(r.status); return r.json();})
+    .then(function(json){
+      if(!json || !json.players) return;
+      if((json.updated||0) <= lastUpdated) return;
+      lastUpdated = json.updated||0;
+      D = json;
+      render();
+    })
+    .catch(function(){});
+}
+
+$('q').oninput = render;
+$('minWave').oninput = render;
+$('minJump').oninput = render;
+$('sort').onchange = render;
+$('closeDetail').onclick = function(){$('detailPanel').classList.remove('open');selected=null};
+Array.from(document.querySelectorAll('th.sort')).forEach(function(th){
+  th.onclick = function(){
+    var s = th.getAttribute('data-s');
+    var cur = $('sort').value;
+    if(cur===s+'-desc') $('sort').value=s+'-asc';
+    else $('sort').value=s+'-desc';
+    render();
+  };
+});
+render();
+setInterval(refreshData, 30000);
+</script>
+</body>
+</html>
