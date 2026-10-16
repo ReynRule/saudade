@@ -1,0 +1,32 @@
+name: Saudade Manager
+on:
+  schedule:
+    - cron: '*/20 * * * *' # backup: only starts if relay chain died
+  workflow_dispatch:
+    inputs:
+      handoff_at:
+        description: 'Epoch ms to hand off from previous job. Empty = start now'
+        required: false
+        default: ''
+permissions:
+  contents: write
+  actions: write
+jobs:
+  track:
+    runs-on: ubuntu-latest
+    timeout-minutes: 358
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Git identity
+        run: |
+          git config user.name "saudade-bot"
+          git config user.email "saudade-bot@users.noreply.github.com"
+      - name: Poll every 1s (relay)
+        env:
+          RUN_MINUTES: 345
+          HANDOFF_AT: ${{ inputs.handoff_at }}
+          GH_TOKEN: ${{ github.token }}
+        run: node poll.js
