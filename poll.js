@@ -431,13 +431,26 @@ async function tick() {
       })
     );
 
+    // Guilds that returned a valid list this tick (failed fetches must NOT wipe players)
+    const okGuilds = new Set();
     const seen = new Set();
     let seasonDate = null;
+    let seasonVotes = 0;
 
     for (const { g, json } of results) {
       if (!json?.result?.list) continue;
+      okGuilds.add(g.id);
       const sd = json.result.date;
-      if (sd?.start && sd?.end) seasonDate = sd;
+      if (sd?.start && sd?.end) {
+        // Prefer a stable season only when multiple guilds agree
+        if (
+          !seasonDate ||
+          (seasonDate.start === sd.start && seasonDate.end === sd.end)
+        ) {
+          seasonDate = sd;
+          seasonVotes += 1;
+        }
+      }
 
       for (const m of json.result.list) {
         const name = m.name;
@@ -455,6 +468,10 @@ async function tick() {
           };
         }
         p.guild = g.id;
+        p.jumps ??= newJumps();
+        p.jumps.hours ??= {};
+        p.hours ??= {};
+        p.past ??= [];
 
         const k = hourKey(Date.now());
         if (p.lastScore != null && score > p.lastScore) {
@@ -476,10 +493,17 @@ async function tick() {
       }
     }
 
-    // Season change: archive jumps + final wave, reset
+    // If every guild failed this tick, do nothing (keep all state intact)
+    if (okGuilds.size === 0) {
+      console.log('all guild fetches failed — keeping previous state');
+      return;
+    }
+
+    // Season change only when we have a clear new season from successful fetches
     if (
       seasonDate?.start &&
       seasonDate?.end &&
+      seasonVotes >= 1 &&
       (state.season.start !== seasonDate.start || state.season.end !== seasonDate.end)
     ) {
       if (state.season.start) {
@@ -502,10 +526,13 @@ async function tick() {
       state.season = { start: seasonDate.start, end: seasonDate.end };
     }
 
-    // Remove players no longer in any guild
+    // Remove only if that player's guild responded successfully and they are missing
+    // (failed fetch for a guild must not delete its members / reset jumps)
     for (const name of Object.keys(state.players)) {
+      const p = state.players[name];
+      if (!okGuilds.has(p.guild)) continue;
       if (!seen.has(name)) {
-        console.log('remove player', name);
+        console.log('remove player', name, p.guild);
         delete state.players[name];
       }
     }
