@@ -1,6 +1,7 @@
 // Saudade Manager — Guild RWPH Tracker
 // Polls 7 Saudade guilds every 1s in parallel
 // Tracks per-player: season wave (score), hourly RWPH + gain, jumps, past seasons (max 30)
+// 시간대 기준: 매시 55분 ~ 다음 시각 55분 (키 "T14" = 14:55~15:55 KST)
 const fs = require('fs');
 const { execSync } = require('child_process');
 
@@ -21,6 +22,9 @@ const COMMIT_EVERY_MS = 1 * 60 * 1000;
 const MAX_HOURS = 24;
 const MAX_PAST = 30;
 const STATE = 'data/state.json';
+
+// 시간대는 매시 55분에 시작한다.
+const HOUR_OFFSET_MS = 55 * 60 * 1000;
 
 const newJumps = () => ({ total: 0, j10: 0, j20: 0, j30: 0, hours: {} });
 // Only exact skip bands count as jumps (polling gaps of hundreds must NOT count)
@@ -48,7 +52,8 @@ const load = () => {
 load();
 
 const kst = (ms) => new Date(ms + 9 * 3600e3).toISOString();
-const hourKey = (ms) => kst(ms).slice(0, 13);
+// 매시 55분에 시작하는 시간대 키. 예: 14:55~15:55 → "YYYY-MM-DDT14"
+const hourKey = (ms) => kst(ms - HOUR_OFFSET_MS).slice(0, 13);
 
 const HTML_TEMPLATE = `<!DOCTYPE html>
 <html lang="en">
@@ -193,7 +198,8 @@ var $ = function(id){return document.getElementById(id)};
 var nf = function(n){return Number(n||0).toLocaleString('en-US')};
 var kst = function(ms){return new Date(ms+9*3600e3).toISOString()};
 var fmt = function(ms){return kst(ms).replace('T',' ').slice(0,16)};
-var labelH = function(k){var hh=Number(k.slice(11,13));return k.slice(5,10)+' '+k.slice(11,13)+':00–'+String((hh+1)%24).padStart(2,'0')+':00'};
+// 시간대는 매시 55분에 시작한다. 키 "T14" = 14:55~15:55
+var labelH = function(k){var hh=Number(k.slice(11,13));return k.slice(5,10)+' '+k.slice(11,13)+':55–'+String((hh+1)%24).padStart(2,'0')+':55'};
 var GUILD_IDS = ['SD','SD2','SD3','SD4','SD5','SD6','SD7'];
 var activeGuild = 'ALL';
 var selected = null;
