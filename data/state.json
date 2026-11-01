@@ -6,11 +6,15 @@
  "players": {
   "2838831": {
    "guild": "SD4",
-   "lastScore": 348,
+   "lastScore": 354,
    "hours": {
     "2026-11-01T23": {
-     "count": 107,
-     "gain": 321
+     "count": 108,
+     "gain": 324
+    },
+    "2026-11-02T00": {
+     "count": 1,
+     "gain": 3
     }
    },
    "jumps": {
@@ -43,11 +47,15 @@
   },
   "Auto": {
    "guild": "SD",
-   "lastScore": 1038,
+   "lastScore": 1056,
    "hours": {
     "2026-11-01T23": {
-     "count": 159,
-     "gain": 954
+     "count": 162,
+     "gain": 972
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -86,11 +94,15 @@
   },
   "Boo8oo": {
    "guild": "SD",
-   "lastScore": 1296,
+   "lastScore": 1314,
    "hours": {
     "2026-11-01T23": {
-     "count": 154,
-     "gain": 1164
+     "count": 157,
+     "gain": 1182
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -140,6 +152,10 @@
     "2026-11-01T23": {
      "count": 0,
      "gain": 0
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -178,11 +194,15 @@
   },
   "Rith": {
    "guild": "SD",
-   "lastScore": 1140,
+   "lastScore": 1158,
    "hours": {
     "2026-11-01T23": {
-     "count": 146,
-     "gain": 1044
+     "count": 148,
+     "gain": 1056
+    },
+    "2026-11-02T00": {
+     "count": 1,
+     "gain": 6
     }
    },
    "jumps": {
@@ -227,11 +247,15 @@
   },
   "SD_yungicecube": {
    "guild": "SD",
-   "lastScore": 1088,
+   "lastScore": 1106,
    "hours": {
     "2026-11-01T23": {
-     "count": 151,
-     "gain": 996
+     "count": 153,
+     "gain": 1008
+    },
+    "2026-11-02T00": {
+     "count": 1,
+     "gain": 6
     }
    },
    "jumps": {
@@ -270,11 +294,15 @@
   },
   "Docpo": {
    "guild": "SD2",
-   "lastScore": 948,
+   "lastScore": 970,
    "hours": {
     "2026-11-01T23": {
-     "count": 156,
-     "gain": 877
+     "count": 159,
+     "gain": 894
+    },
+    "2026-11-02T00": {
+     "count": 1,
+     "gain": 5
     }
    },
    "jumps": {
@@ -313,11 +341,15 @@
   },
   "LakuJK": {
    "guild": "SD2",
-   "lastScore": 1008,
+   "lastScore": 1020,
    "hours": {
     "2026-11-01T23": {
-     "count": 156,
-     "gain": 936
+     "count": 158,
+     "gain": 948
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -356,23 +388,27 @@
   },
   "SD_Jorv": {
    "guild": "SD2",
-   "lastScore": 1100,
+   "lastScore": 1140,
    "hours": {
     "2026-11-01T23": {
-     "count": 157,
-     "gain": 985
+     "count": 159,
+     "gain": 1020
+    },
+    "2026-11-02T00": {
+     "count": 1,
+     "gain": 5
     }
    },
    "jumps": {
-    "total": 8,
+    "total": 9,
     "j10": 0,
     "j20": 0,
-    "j30": 8,
+    "j30": 9,
     "hours": {
      "2026-11-01T23": {
       "j10": 0,
       "j20": 0,
-      "j30": 8
+      "j30": 9
      }
     }
    },
@@ -405,11 +441,15 @@
   },
   "xRedragon666": {
    "guild": "SD4",
-   "lastScore": 540,
+   "lastScore": 550,
    "hours": {
     "2026-11-01T23": {
-     "count": 99,
-     "gain": 495
+     "count": 101,
+     "gain": 505
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -453,6 +493,10 @@
     "2026-11-01T23": {
      "count": 39,
      "gain": 117
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -491,11 +535,15 @@
   },
   "cjl1004": {
    "guild": "SD5",
-   "lastScore": 101,
+   "lastScore": 103,
    "hours": {
     "2026-11-01T23": {
-     "count": 92,
-     "gain": 92
+     "count": 93,
+     "gain": 93
+    },
+    "2026-11-02T00": {
+     "count": 1,
+     "gain": 1
     }
    },
    "jumps": {
@@ -534,11 +582,15 @@
   },
   "Copper76": {
    "guild": "SD5",
-   "lastScore": 344,
+   "lastScore": 352,
    "hours": {
     "2026-11-01T23": {
-     "count": 77,
-     "gain": 308
+     "count": 79,
+     "gain": 316
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -582,6 +634,10 @@
     "2026-11-01T23": {
      "count": 40,
      "gain": 120
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -620,11 +676,15 @@
   },
   "Mini_Linxx": {
    "guild": "SD5",
-   "lastScore": 327,
+   "lastScore": 333,
    "hours": {
     "2026-11-01T23": {
-     "count": 100,
-     "gain": 300
+     "count": 102,
+     "gain": 306
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -663,11 +723,15 @@
   },
   "Painlessly": {
    "guild": "SD5",
-   "lastScore": 575,
+   "lastScore": 590,
    "hours": {
     "2026-11-01T23": {
-     "count": 106,
-     "gain": 530
+     "count": 108,
+     "gain": 540
+    },
+    "2026-11-02T00": {
+     "count": 1,
+     "gain": 5
     }
    },
    "jumps": {
@@ -709,6 +773,10 @@
    "lastScore": 0,
    "hours": {
     "2026-11-01T23": {
+     "count": 0,
+     "gain": 0
+    },
+    "2026-11-02T00": {
      "count": 0,
      "gain": 0
     }
@@ -754,6 +822,10 @@
     "2026-11-01T23": {
      "count": 0,
      "gain": 0
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -792,11 +864,15 @@
   },
   "Wano_Capital": {
    "guild": "SD5",
-   "lastScore": 448,
+   "lastScore": 456,
    "hours": {
     "2026-11-01T23": {
-     "count": 103,
-     "gain": 412
+     "count": 105,
+     "gain": 420
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -840,6 +916,10 @@
     "2026-11-01T23": {
      "count": 0,
      "gain": 0
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -878,11 +958,15 @@
   },
   "Zynqerx_SD": {
    "guild": "SD5",
-   "lastScore": 352,
+   "lastScore": 360,
    "hours": {
     "2026-11-01T23": {
-     "count": 79,
-     "gain": 316
+     "count": 81,
+     "gain": 324
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -926,6 +1010,10 @@
     "2026-11-01T23": {
      "count": 0,
      "gain": 0
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -964,11 +1052,15 @@
   },
   "-ProV-": {
    "guild": "SD6",
-   "lastScore": 645,
+   "lastScore": 650,
    "hours": {
     "2026-11-01T23": {
-     "count": 103,
-     "gain": 565
+     "count": 104,
+     "gain": 570
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -1018,6 +1110,10 @@
     "2026-11-01T23": {
      "count": 0,
      "gain": 0
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -1061,6 +1157,10 @@
     "2026-11-01T23": {
      "count": 0,
      "gain": 0
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -1099,11 +1199,15 @@
   },
   "LazyDav": {
    "guild": "SD6",
-   "lastScore": 243,
+   "lastScore": 249,
    "hours": {
     "2026-11-01T23": {
-     "count": 74,
-     "gain": 222
+     "count": 76,
+     "gain": 228
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -1145,6 +1249,10 @@
    "lastScore": 0,
    "hours": {
     "2026-11-01T23": {
+     "count": 0,
+     "gain": 0
+    },
+    "2026-11-02T00": {
      "count": 0,
      "gain": 0
     }
@@ -1190,6 +1298,10 @@
     "2026-11-01T23": {
      "count": 0,
      "gain": 0
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -1228,11 +1340,15 @@
   },
   "SD_Rhaegar": {
    "guild": "SD6",
-   "lastScore": 345,
+   "lastScore": 351,
    "hours": {
     "2026-11-01T23": {
-     "count": 105,
-     "gain": 315
+     "count": 107,
+     "gain": 321
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -1271,11 +1387,15 @@
   },
   "Linxx_Hybrid": {
    "guild": "SD",
-   "lastScore": 990,
+   "lastScore": 1008,
    "hours": {
     "2026-11-01T23": {
-     "count": 144,
-     "gain": 912
+     "count": 147,
+     "gain": 930
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -1314,11 +1434,15 @@
   },
   "KingGift": {
    "guild": "SD3",
-   "lastScore": 558,
+   "lastScore": 566,
    "hours": {
     "2026-11-01T23": {
-     "count": 94,
-     "gain": 506
+     "count": 96,
+     "gain": 514
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -1362,6 +1486,10 @@
     "2026-11-01T23": {
      "count": 87,
      "gain": 348
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -1399,6 +1527,10 @@
     "2026-11-01T23": {
      "count": 0,
      "gain": 0
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -1431,11 +1563,15 @@
   },
   "SD_Gubi": {
    "guild": "SD4",
-   "lastScore": 444,
+   "lastScore": 452,
    "hours": {
     "2026-11-01T23": {
-     "count": 102,
-     "gain": 408
+     "count": 104,
+     "gain": 416
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -1473,6 +1609,10 @@
     "2026-11-01T23": {
      "count": 0,
      "gain": 0
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -1505,11 +1645,15 @@
   },
   "SD_MisterSalty": {
    "guild": "SD5",
-   "lastScore": 486,
+   "lastScore": 494,
    "hours": {
     "2026-11-01T23": {
-     "count": 106,
-     "gain": 450
+     "count": 108,
+     "gain": 458
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -1553,6 +1697,10 @@
     "2026-11-01T23": {
      "count": 0,
      "gain": 0
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -1585,11 +1733,15 @@
   },
   "Grizzly76": {
    "guild": "SD5",
-   "lastScore": 216,
+   "lastScore": 219,
    "hours": {
     "2026-11-01T23": {
-     "count": 66,
-     "gain": 198
+     "count": 67,
+     "gain": 201
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -1622,11 +1774,15 @@
   },
   "SD_Basterix": {
    "guild": "SD",
-   "lastScore": 1046,
+   "lastScore": 1063,
    "hours": {
     "2026-11-01T23": {
-     "count": 155,
-     "gain": 971
+     "count": 157,
+     "gain": 982
+    },
+    "2026-11-02T00": {
+     "count": 1,
+     "gain": 6
     }
    },
    "jumps": {
@@ -1670,6 +1826,10 @@
     "2026-11-01T23": {
      "count": 0,
      "gain": 0
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -1702,11 +1862,15 @@
   },
   "SD_Zoe": {
    "guild": "SD4",
-   "lastScore": 216,
+   "lastScore": 218,
    "hours": {
     "2026-11-01T23": {
-     "count": 99,
-     "gain": 198
+     "count": 100,
+     "gain": 200
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -1744,6 +1908,10 @@
     "2026-11-01T23": {
      "count": 0,
      "gain": 0
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -1776,11 +1944,15 @@
   },
   "GAME W": {
    "guild": "SD4",
-   "lastScore": 213,
+   "lastScore": 216,
    "hours": {
     "2026-11-01T23": {
-     "count": 65,
-     "gain": 195
+     "count": 66,
+     "gain": 198
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -1818,6 +1990,10 @@
     "2026-11-01T23": {
      "count": 0,
      "gain": 0
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -1850,11 +2026,15 @@
   },
   "DeadLegion66": {
    "guild": "SD5",
-   "lastScore": 490,
+   "lastScore": 498,
    "hours": {
     "2026-11-01T23": {
-     "count": 106,
-     "gain": 450
+     "count": 108,
+     "gain": 458
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -1893,11 +2073,15 @@
   },
   "SD_Try2": {
    "guild": "SD6",
-   "lastScore": 444,
+   "lastScore": 452,
    "hours": {
     "2026-11-01T23": {
-     "count": 102,
-     "gain": 408
+     "count": 104,
+     "gain": 416
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -1930,11 +2114,15 @@
   },
   "ItzDeicide": {
    "guild": "SD4",
-   "lastScore": 219,
+   "lastScore": 225,
    "hours": {
     "2026-11-01T23": {
-     "count": 66,
-     "gain": 198
+     "count": 68,
+     "gain": 204
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -1967,11 +2155,15 @@
   },
   "gab1_mrs": {
    "guild": "SD4",
-   "lastScore": 444,
+   "lastScore": 452,
    "hours": {
     "2026-11-01T23": {
-     "count": 102,
-     "gain": 408
+     "count": 104,
+     "gain": 416
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -2004,11 +2196,15 @@
   },
   "SD_GIT": {
    "guild": "SD2",
-   "lastScore": 982,
+   "lastScore": 998,
    "hours": {
     "2026-11-01T23": {
-     "count": 147,
-     "gain": 864
+     "count": 149,
+     "gain": 875
+    },
+    "2026-11-02T00": {
+     "count": 1,
+     "gain": 5
     }
    },
    "jumps": {
@@ -2052,6 +2248,10 @@
     "2026-11-01T23": {
      "count": 0,
      "gain": 0
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -2084,11 +2284,15 @@
   },
   "Soullll1": {
    "guild": "SD4",
-   "lastScore": 112,
+   "lastScore": 114,
    "hours": {
     "2026-11-01T23": {
-     "count": 103,
-     "gain": 103
+     "count": 104,
+     "gain": 104
+    },
+    "2026-11-02T00": {
+     "count": 1,
+     "gain": 1
     }
    },
    "jumps": {
@@ -2126,6 +2330,10 @@
     "2026-11-01T23": {
      "count": 0,
      "gain": 0
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -2158,11 +2366,15 @@
   },
   "Kongzzz": {
    "guild": "SD4",
-   "lastScore": 327,
+   "lastScore": 333,
    "hours": {
     "2026-11-01T23": {
-     "count": 100,
-     "gain": 300
+     "count": 102,
+     "gain": 306
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -2200,6 +2412,10 @@
     "2026-11-01T23": {
      "count": 61,
      "gain": 61
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -2232,11 +2448,15 @@
   },
   "Kurumi": {
    "guild": "SD2",
-   "lastScore": 910,
+   "lastScore": 925,
    "hours": {
     "2026-11-01T23": {
-     "count": 150,
-     "gain": 825
+     "count": 152,
+     "gain": 835
+    },
+    "2026-11-02T00": {
+     "count": 1,
+     "gain": 5
     }
    },
    "jumps": {
@@ -2269,11 +2489,15 @@
   },
   "Spyder": {
    "guild": "SD7",
-   "lastScore": 640,
+   "lastScore": 652,
    "hours": {
     "2026-11-01T23": {
-     "count": 147,
-     "gain": 588
+     "count": 150,
+     "gain": 600
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -2300,11 +2524,15 @@
   },
   "SD_Dadagamer11": {
    "guild": "SD2",
-   "lastScore": 676,
+   "lastScore": 688,
    "hours": {
     "2026-11-01T23": {
-     "count": 156,
-     "gain": 624
+     "count": 158,
+     "gain": 632
+    },
+    "2026-11-02T00": {
+     "count": 1,
+     "gain": 4
     }
    },
    "jumps": {
@@ -2331,11 +2559,15 @@
   },
   "SD_Lx": {
    "guild": "SD3",
-   "lastScore": 504,
+   "lastScore": 513,
    "hours": {
     "2026-11-01T23": {
-     "count": 155,
-     "gain": 465
+     "count": 157,
+     "gain": 471
+    },
+    "2026-11-02T00": {
+     "count": 1,
+     "gain": 3
     }
    },
    "jumps": {
@@ -2362,11 +2594,15 @@
   },
   "droxiiN": {
    "guild": "SD2",
-   "lastScore": 960,
+   "lastScore": 972,
    "hours": {
     "2026-11-01T23": {
-     "count": 147,
-     "gain": 882
+     "count": 149,
+     "gain": 894
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -2393,11 +2629,15 @@
   },
   "sausage_racky": {
    "guild": "SD5",
-   "lastScore": 585,
+   "lastScore": 600,
    "hours": {
     "2026-11-01T23": {
-     "count": 108,
-     "gain": 540
+     "count": 110,
+     "gain": 550
+    },
+    "2026-11-02T00": {
+     "count": 1,
+     "gain": 5
     }
    },
    "jumps": {
@@ -2424,11 +2664,15 @@
   },
   "SD_DarkLight": {
    "guild": "SD4",
-   "lastScore": 569,
+   "lastScore": 573,
    "hours": {
     "2026-11-01T23": {
-     "count": 92,
-     "gain": 518
+     "count": 93,
+     "gain": 522
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -2461,23 +2705,27 @@
   },
   "ALDE": {
    "guild": "SD",
-   "lastScore": 1185,
+   "lastScore": 1225,
    "hours": {
     "2026-11-01T23": {
-     "count": 153,
-     "gain": 1015
+     "count": 156,
+     "gain": 1055
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
-    "total": 10,
+    "total": 11,
     "j10": 0,
     "j20": 0,
-    "j30": 10,
+    "j30": 11,
     "hours": {
      "2026-11-01T23": {
       "j10": 0,
       "j20": 0,
-      "j30": 10
+      "j30": 11
      }
     }
    },
@@ -2498,11 +2746,15 @@
   },
   "_Natee_": {
    "guild": "SD",
-   "lastScore": 940,
+   "lastScore": 955,
    "hours": {
     "2026-11-01T23": {
-     "count": 155,
-     "gain": 825
+     "count": 158,
+     "gain": 840
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -2540,6 +2792,10 @@
     "2026-11-01T23": {
      "count": 0,
      "gain": 0
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -2566,11 +2822,15 @@
   },
   "giangnguyn": {
    "guild": "SD3",
-   "lastScore": 72,
+   "lastScore": 78,
    "hours": {
     "2026-11-01T23": {
-     "count": 24,
-     "gain": 72
+     "count": 25,
+     "gain": 75
+    },
+    "2026-11-02T00": {
+     "count": 1,
+     "gain": 3
     }
    },
    "jumps": {
@@ -2597,11 +2857,15 @@
   },
   "MattyP3o5": {
    "guild": "SD2",
-   "lastScore": 855,
+   "lastScore": 870,
    "hours": {
     "2026-11-01T23": {
-     "count": 158,
-     "gain": 790
+     "count": 160,
+     "gain": 800
+    },
+    "2026-11-02T00": {
+     "count": 1,
+     "gain": 5
     }
    },
    "jumps": {
@@ -2628,11 +2892,15 @@
   },
   "RhanRhan": {
    "guild": "SD2",
-   "lastScore": 760,
+   "lastScore": 775,
    "hours": {
     "2026-11-01T23": {
-     "count": 138,
-     "gain": 690
+     "count": 141,
+     "gain": 705
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -2658,6 +2926,10 @@
     "2026-11-01T23": {
      "count": 0,
      "gain": 0
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -2678,11 +2950,15 @@
   },
   "justBubi": {
    "guild": "SD4",
-   "lastScore": 540,
+   "lastScore": 550,
    "hours": {
     "2026-11-01T23": {
-     "count": 100,
-     "gain": 500
+     "count": 102,
+     "gain": 510
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -2703,11 +2979,15 @@
   },
   "Aruzu": {
    "guild": "SD2",
-   "lastScore": 812,
+   "lastScore": 824,
    "hours": {
     "2026-11-01T23": {
-     "count": 150,
-     "gain": 756
+     "count": 152,
+     "gain": 764
+    },
+    "2026-11-02T00": {
+     "count": 1,
+     "gain": 4
     }
    },
    "jumps": {
@@ -2734,11 +3014,15 @@
   },
   "Zaem_": {
    "guild": "SD",
-   "lastScore": 1120,
+   "lastScore": 1140,
    "hours": {
     "2026-11-01T23": {
-     "count": 156,
-     "gain": 1030
+     "count": 159,
+     "gain": 1050
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -2759,11 +3043,15 @@
   },
   "DC_Sherlock": {
    "guild": "SD2",
-   "lastScore": 1023,
+   "lastScore": 1038,
    "hours": {
     "2026-11-01T23": {
-     "count": 150,
-     "gain": 955
+     "count": 152,
+     "gain": 965
+    },
+    "2026-11-02T00": {
+     "count": 1,
+     "gain": 5
     }
    },
    "jumps": {
@@ -2790,11 +3078,15 @@
   },
   "SD_Chillax": {
    "guild": "SD",
-   "lastScore": 1254,
+   "lastScore": 1272,
    "hours": {
     "2026-11-01T23": {
-     "count": 152,
-     "gain": 1152
+     "count": 154,
+     "gain": 1164
+    },
+    "2026-11-02T00": {
+     "count": 1,
+     "gain": 6
     }
    },
    "jumps": {
@@ -2821,11 +3113,15 @@
   },
   "MrBoterkoek": {
    "guild": "SD",
-   "lastScore": 408,
+   "lastScore": 426,
    "hours": {
     "2026-11-01T23": {
-     "count": 64,
-     "gain": 408
+     "count": 67,
+     "gain": 426
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -2852,23 +3148,27 @@
   },
   "ArroW": {
    "guild": "SD",
-   "lastScore": 1482,
+   "lastScore": 1574,
    "hours": {
     "2026-11-01T23": {
-     "count": 153,
-     "gain": 1323
+     "count": 156,
+     "gain": 1415
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
-    "total": 13,
+    "total": 16,
     "j10": 0,
     "j20": 0,
-    "j30": 13,
+    "j30": 16,
     "hours": {
      "2026-11-01T23": {
       "j10": 0,
       "j20": 0,
-      "j30": 13
+      "j30": 16
      }
     }
    },
@@ -2883,11 +3183,15 @@
   },
   "SD_Fatal": {
    "guild": "SD",
-   "lastScore": 1199,
+   "lastScore": 1216,
    "hours": {
     "2026-11-01T23": {
-     "count": 158,
-     "gain": 1123
+     "count": 161,
+     "gain": 1140
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -2914,11 +3218,15 @@
   },
   "_H4d3s": {
    "guild": "SD3",
-   "lastScore": 680,
+   "lastScore": 696,
    "hours": {
     "2026-11-01T23": {
-     "count": 156,
-     "gain": 624
+     "count": 159,
+     "gain": 636
+    },
+    "2026-11-02T00": {
+     "count": 1,
+     "gain": 4
     }
    },
    "jumps": {
@@ -2939,11 +3247,15 @@
   },
   "QueenCalypso": {
    "guild": "SD2",
-   "lastScore": 800,
+   "lastScore": 815,
    "hours": {
     "2026-11-01T23": {
-     "count": 148,
-     "gain": 740
+     "count": 151,
+     "gain": 755
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -2964,11 +3276,15 @@
   },
   "SD_VoLT": {
    "guild": "SD2",
-   "lastScore": 590,
+   "lastScore": 600,
    "hours": {
     "2026-11-01T23": {
-     "count": 109,
-     "gain": 545
+     "count": 111,
+     "gain": 555
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -2989,11 +3305,15 @@
   },
   "Jungle Diff": {
    "guild": "SD4",
-   "lastScore": 63,
+   "lastScore": 69,
    "hours": {
     "2026-11-01T23": {
-     "count": 21,
-     "gain": 63
+     "count": 22,
+     "gain": 66
+    },
+    "2026-11-02T00": {
+     "count": 1,
+     "gain": 3
     }
    },
    "jumps": {
@@ -3014,11 +3334,15 @@
   },
   "Aurora__Pan": {
    "guild": "SD3",
-   "lastScore": 850,
+   "lastScore": 865,
    "hours": {
     "2026-11-01T23": {
-     "count": 156,
-     "gain": 780
+     "count": 159,
+     "gain": 795
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -3044,6 +3368,10 @@
     "2026-11-01T23": {
      "count": 78,
      "gain": 312
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -3064,11 +3392,15 @@
   },
   "HolyHerb": {
    "guild": "SD",
-   "lastScore": 1134,
+   "lastScore": 1152,
    "hours": {
     "2026-11-01T23": {
-     "count": 158,
-     "gain": 1020
+     "count": 160,
+     "gain": 1032
+    },
+    "2026-11-02T00": {
+     "count": 1,
+     "gain": 6
     }
    },
    "jumps": {
@@ -3095,11 +3427,15 @@
   },
   "Dr Sugar": {
    "guild": "SD2",
-   "lastScore": 850,
+   "lastScore": 865,
    "hours": {
     "2026-11-01T23": {
-     "count": 157,
-     "gain": 785
+     "count": 159,
+     "gain": 795
+    },
+    "2026-11-02T00": {
+     "count": 1,
+     "gain": 5
     }
    },
    "jumps": {
@@ -3120,11 +3456,15 @@
   },
   "Hellbirb": {
    "guild": "SD",
-   "lastScore": 234,
+   "lastScore": 252,
    "hours": {
     "2026-11-01T23": {
-     "count": 31,
-     "gain": 234
+     "count": 33,
+     "gain": 246
+    },
+    "2026-11-02T00": {
+     "count": 1,
+     "gain": 6
     }
    },
    "jumps": {
@@ -3151,11 +3491,15 @@
   },
   "HolyRGC": {
    "guild": "SD4",
-   "lastScore": 208,
+   "lastScore": 216,
    "hours": {
     "2026-11-01T23": {
-     "count": 52,
-     "gain": 208
+     "count": 53,
+     "gain": 212
+    },
+    "2026-11-02T00": {
+     "count": 1,
+     "gain": 4
     }
    },
    "jumps": {
@@ -3179,6 +3523,10 @@
    "lastScore": 0,
    "hours": {
     "2026-11-01T23": {
+     "count": 0,
+     "gain": 0
+    },
+    "2026-11-02T00": {
      "count": 0,
      "gain": 0
     }
@@ -3206,6 +3554,10 @@
     "2026-11-01T23": {
      "count": 0,
      "gain": 0
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -3226,11 +3578,15 @@
   },
   "SD_Tenalp": {
    "guild": "SD2",
-   "lastScore": 1032,
+   "lastScore": 1050,
    "hours": {
     "2026-11-01T23": {
-     "count": 158,
-     "gain": 948
+     "count": 161,
+     "gain": 966
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -3251,11 +3607,15 @@
   },
   "SD - Jack": {
    "guild": "SD5",
-   "lastScore": 210,
+   "lastScore": 213,
    "hours": {
     "2026-11-01T23": {
-     "count": 63,
-     "gain": 189
+     "count": 64,
+     "gain": 192
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -3281,6 +3641,10 @@
     "2026-11-01T23": {
      "count": 63,
      "gain": 252
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -3301,23 +3665,27 @@
   },
   "Caliste": {
    "guild": "SD",
-   "lastScore": 1306,
+   "lastScore": 1342,
    "hours": {
     "2026-11-01T23": {
-     "count": 152,
-     "gain": 1219
+     "count": 153,
+     "gain": 1249
+    },
+    "2026-11-02T00": {
+     "count": 1,
+     "gain": 6
     }
    },
    "jumps": {
-    "total": 9,
+    "total": 10,
     "j10": 0,
     "j20": 0,
-    "j30": 9,
+    "j30": 10,
     "hours": {
      "2026-11-01T23": {
       "j10": 0,
       "j20": 0,
-      "j30": 9
+      "j30": 10
      }
     }
    },
@@ -3332,11 +3700,15 @@
   },
   "SD_VINNY": {
    "guild": "SD2",
-   "lastScore": 800,
+   "lastScore": 815,
    "hours": {
     "2026-11-01T23": {
-     "count": 147,
-     "gain": 760
+     "count": 149,
+     "gain": 770
+    },
+    "2026-11-02T00": {
+     "count": 1,
+     "gain": 5
     }
    },
    "jumps": {
@@ -3368,6 +3740,10 @@
     "2026-11-01T23": {
      "count": 153,
      "gain": 918
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -3388,23 +3764,27 @@
   },
   "NoobCorpse": {
    "guild": "SD",
-   "lastScore": 885,
+   "lastScore": 925,
    "hours": {
     "2026-11-01T23": {
-     "count": 129,
-     "gain": 820
+     "count": 131,
+     "gain": 855
+    },
+    "2026-11-02T00": {
+     "count": 1,
+     "gain": 5
     }
    },
    "jumps": {
-    "total": 7,
+    "total": 8,
     "j10": 0,
     "j20": 0,
-    "j30": 7,
+    "j30": 8,
     "hours": {
      "2026-11-01T23": {
       "j10": 0,
       "j20": 0,
-      "j30": 7
+      "j30": 8
      }
     }
    },
@@ -3419,11 +3799,15 @@
   },
   "Sujay 72": {
    "guild": "SD5",
-   "lastScore": 140,
+   "lastScore": 142,
    "hours": {
     "2026-11-01T23": {
-     "count": 70,
-     "gain": 140
+     "count": 71,
+     "gain": 142
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -3437,11 +3821,15 @@
   },
   "Kellychatty": {
    "guild": "SD2",
-   "lastScore": 700,
+   "lastScore": 712,
    "hours": {
     "2026-11-01T23": {
-     "count": 149,
-     "gain": 700
+     "count": 152,
+     "gain": 712
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -3461,11 +3849,15 @@
   },
   "JollyRoger": {
    "guild": "SD6",
-   "lastScore": 524,
+   "lastScore": 532,
    "hours": {
     "2026-11-01T23": {
-     "count": 118,
-     "gain": 524
+     "count": 120,
+     "gain": 532
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -3490,6 +3882,10 @@
     "2026-11-01T23": {
      "count": 0,
      "gain": 0
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -3503,11 +3899,15 @@
   },
   "ReynRule": {
    "guild": "SD2",
-   "lastScore": 515,
+   "lastScore": 525,
    "hours": {
     "2026-11-01T23": {
-     "count": 85,
-     "gain": 515
+     "count": 87,
+     "gain": 525
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -3527,11 +3927,15 @@
   },
   "uglykidd-": {
    "guild": "SD3",
-   "lastScore": 192,
+   "lastScore": 195,
    "hours": {
     "2026-11-01T23": {
-     "count": 64,
-     "gain": 192
+     "count": 65,
+     "gain": 195
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -3550,6 +3954,10 @@
     "2026-11-01T23": {
      "count": 9,
      "gain": 36
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -3563,11 +3971,15 @@
   },
   "kh51": {
    "guild": "SD3",
-   "lastScore": 468,
+   "lastScore": 476,
    "hours": {
     "2026-11-01T23": {
-     "count": 91,
-     "gain": 468
+     "count": 93,
+     "gain": 476
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -3587,11 +3999,15 @@
   },
   "MAX": {
    "guild": "SD2",
-   "lastScore": 1151,
+   "lastScore": 1171,
    "hours": {
     "2026-11-01T23": {
-     "count": 139,
-     "gain": 1151
+     "count": 141,
+     "gain": 1164
+    },
+    "2026-11-02T00": {
+     "count": 1,
+     "gain": 7
     }
    },
    "jumps": {
@@ -3611,11 +4027,15 @@
   },
   "Kidranguyen": {
    "guild": "SD3",
-   "lastScore": 4,
+   "lastScore": 8,
    "hours": {
     "2026-11-01T23": {
-     "count": 1,
-     "gain": 4
+     "count": 2,
+     "gain": 8
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -3629,11 +4049,15 @@
   },
   "ctcea": {
    "guild": "SD3",
-   "lastScore": 213,
+   "lastScore": 219,
    "hours": {
     "2026-11-01T23": {
-     "count": 71,
-     "gain": 213
+     "count": 73,
+     "gain": 219
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -3647,11 +4071,15 @@
   },
   "bolero vn": {
    "guild": "SD7",
-   "lastScore": 56,
+   "lastScore": 60,
    "hours": {
     "2026-11-01T23": {
-     "count": 21,
-     "gain": 56
+     "count": 22,
+     "gain": 58
+    },
+    "2026-11-02T00": {
+     "count": 1,
+     "gain": 2
     }
    },
    "jumps": {
@@ -3665,11 +4093,15 @@
   },
   "50xPhilippp": {
    "guild": "SD6",
-   "lastScore": 35,
+   "lastScore": 36,
    "hours": {
     "2026-11-01T23": {
-     "count": 35,
-     "gain": 35
+     "count": 36,
+     "gain": 36
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -3683,11 +4115,15 @@
   },
   "Ozzy": {
    "guild": "SD4",
-   "lastScore": 96,
+   "lastScore": 99,
    "hours": {
     "2026-11-01T23": {
-     "count": 67,
-     "gain": 96
+     "count": 70,
+     "gain": 99
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -3707,11 +4143,15 @@
   },
   "SD_Lotuszz": {
    "guild": "SD3",
-   "lastScore": 70,
+   "lastScore": 78,
    "hours": {
     "2026-11-01T23": {
-     "count": 11,
-     "gain": 70
+     "count": 13,
+     "gain": 78
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -3736,6 +4176,10 @@
     "2026-11-01T23": {
      "count": 0,
      "gain": 0
+    },
+    "2026-11-02T00": {
+     "count": 0,
+     "gain": 0
     }
    },
    "jumps": {
@@ -3748,5 +4192,5 @@
    "past": []
   }
  },
- "updated": 1793548447220
+ "updated": 1793548509219
 }
